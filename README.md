@@ -1,45 +1,114 @@
+<div align="center">
+
 # 🙃 Mood-Based AI Chatbot
 
-A mood-based conversational AI chatbot built with **Python, Streamlit, LangChain, and Mistral AI**. Choose an AI personality and chat with an assistant that responds in a matching tone.
+**One chatbot. Three personalities. A different vibe for every conversation.**
+
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Try_the_Chatbot-FF4B4B?style=for-the-badge)](https://mood-based-ai-chatbot-1.streamlit.app/)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![LangChain](https://img.shields.io/badge/LangChain-Integration-1C3C3C?style=flat-square)](https://www.langchain.com/)
+[![Mistral AI](https://img.shields.io/badge/Powered%20by-Mistral%20AI-7C3AED?style=flat-square)](https://mistral.ai/)
+
+**🔴 Live App:** https://mood-based-ai-chatbot-1.streamlit.app/  
+**💻 GitHub Repository:** https://github.com/RisabhPandey/Mood-Based-AI-Chatbot
+
+</div>
+
+---
+
+## 📌 Overview
+
+Mood-Based AI Chatbot is a conversational AI web application built with **Python, Streamlit, LangChain, and Mistral AI**. It lets users choose an assistant personality and chat with an AI that responds according to the selected tone.
+
+Whether you want a dramatic angry response, a humorous reply, or a sad and thoughtful tone, you can switch between three modes through a simple interactive interface.
+
+> **Note:** The selected mood controls the assistant's response style through a system prompt. The application does not detect the user's actual emotional state.
 
 ## ✨ Features
 
-- **Three AI personalities**
-  - 😡 **Angry:** Responds aggressively and impatiently.
-  - 😂 **Funny:** Responds with humor and jokes.
-  - 😢 **Sad:** Responds in a sad and deep tone.
-- **Interactive chat interface** built with Streamlit.
-- **Conversation context** maintained during the current chat session.
-- **Personality-based system prompts** that guide the assistant's response style.
-- **Reset Chat** button to clear the conversation and start again.
-- **Stop input:** Enter `0` to stop the current chat interaction.
+| Feature | Description |
+|---|---|
+| 😡 **Angry Mode** | An aggressive, impatient response style. |
+| 😂 **Funny Mode** | Humorous responses and jokes. |
+| 😢 **Sad Mode** | A sad, deep response style. |
+| 💬 **Interactive chat** | Chat through Streamlit's chat interface. |
+| 🧠 **Conversation context** | Earlier messages are included in the current conversation. |
+| 🔄 **Reset Chat** | Clear the conversation and start again. |
+| 🎭 **Mood-based prompts** | The selected personality determines the system prompt and assistant avatar. |
+| ☁️ **Live deployment** | Access the app online through Streamlit Community Cloud. |
 
-## 🧰 Tech Stack
+## 🖥️ Try the Live Demo
+
+👉 **[Launch Mood-Based AI Chatbot](https://mood-based-ai-chatbot-1.streamlit.app/)**
+
+1. Open the live app.
+2. Select **Angry**, **Funny**, or **Sad**.
+3. Enter a message in the chat box.
+4. Continue the conversation and compare the different response styles.
+5. Select **Reset Chat** to clear the current conversation.
+
+Enter `0` to stop the current chat interaction.
+
+## 🛠️ Tech Stack
 
 - **Python** — application logic
-- **Streamlit** — web-based user interface
-- **LangChain** — message management and model integration
-- **Mistral AI** — language model used to generate responses
-- **python-dotenv** — loads environment variables from a `.env` file
+- **Streamlit** — web UI and chat interface
+- **LangChain Core** — message types and conversation handling
+- **LangChain Mistral AI** — integration with the Mistral chat model
+- **Mistral AI API** — AI-generated responses
+- **python-dotenv** — local environment variable loading
+- **Streamlit Community Cloud** — deployment and hosting
 
-## 📁 Project Structure
+## 🏗️ How It Works
+
+```text
+User opens the chatbot
+        |
+        v
+Selects a personality
+(Angry / Funny / Sad)
+        |
+        v
+App selects the matching system prompt
+        |
+        v
+User enters a message
+        |
+        v
+Conversation messages are sent through LangChain
+        |
+        v
+Mistral AI generates a response
+        |
+        v
+Response appears in the Streamlit chat
+```
+
+### Conversation flow
+
+1. The user chooses a personality.
+2. The application maps that choice to a corresponding system prompt.
+3. Streamlit session state stores the conversation messages.
+4. LangChain sends the messages to the configured Mistral chat model.
+5. The generated response is displayed and added to the conversation history.
+6. Changing the personality starts a new conversation for that mode.
+
+## 📂 Project Structure
 
 ```text
 Mood-Based-AI-Chatbot/
-├── UI_chatbot.py       # Streamlit application
-├── .env                # API key configuration (create locally)
-├── .gitignore          # Recommended: exclude secrets and virtual environments
-├── requirements.txt    # Python dependencies (create as described below)
-└── README.md           # Project documentation
+├── Projects/
+│   └── UI_chatbot.py       # Main Streamlit chatbot application
+├── requirements.txt        # Python dependencies
+├── .env                    # Local API key (create locally; do not commit)
+├── .gitignore              # Excludes secrets and generated files
+└── README.md               # Project documentation
 ```
 
-## ⚙️ Prerequisites
+*Adjust the file paths above if your repository structure differs.*
 
-- Python 3.10 or a compatible Python version supported by the dependencies
-- A Mistral AI API key
-- Internet access for API requests
-
-## 🚀 Installation and Setup
+## ⚙️ Run Locally
 
 ### 1. Clone the repository
 
@@ -48,7 +117,7 @@ git clone https://github.com/RisabhPandey/Mood-Based-AI-Chatbot.git
 cd Mood-Based-AI-Chatbot
 ```
 
-### 2. Create and activate a virtual environment
+### 2. Create a virtual environment
 
 **Windows (PowerShell):**
 
@@ -66,19 +135,19 @@ source .venv/bin/activate
 
 ### 3. Install dependencies
 
-Install the packages used by the application:
+If your repository includes `requirements.txt`:
 
 ```bash
-pip install streamlit python-dotenv langchain-mistralai langchain-core
+python -m pip install -r requirements.txt
 ```
 
-Optionally, save your installed dependencies to a file:
+Otherwise, install the packages used by the application:
 
 ```bash
-pip freeze > requirements.txt
+python -m pip install streamlit python-dotenv langchain-core langchain-mistralai
 ```
 
-### 4. Configure your Mistral AI API key
+### 4. Configure your Mistral API key
 
 Create a `.env` file in the project root:
 
@@ -86,47 +155,53 @@ Create a `.env` file in the project root:
 MISTRAL_API_KEY=your_mistral_api_key_here
 ```
 
-Replace the placeholder with your own API key. Keep this file private and **never commit API keys or other secrets to GitHub**.
+Replace the placeholder with your own API key from the [Mistral AI console](https://console.mistral.ai/).
 
-The application calls `load_dotenv()` to load values from `.env`. The Mistral LangChain integration uses the configured Mistral credentials to authenticate API requests.
+The application uses `python-dotenv` to load local environment variables. Ensure your code reads the key using the configuration supported by your current implementation.
 
-### 5. Run the application
+### 5. Start the app
+
+If the main file is inside `Projects/`:
+
+```bash
+streamlit run Projects/UI_chatbot.py
+```
+
+If it is in the repository root:
 
 ```bash
 streamlit run UI_chatbot.py
 ```
 
-Streamlit will display a local URL in the terminal. Open that URL in your browser to use the chatbot.
+Open the local URL shown in the terminal.
 
-## 💬 How to Use
+## ☁️ Deployment
 
-1. Launch the application.
-2. Select **😡 Angry**, **😂 Funny**, or **😢 Sad**.
-3. Type a message in the chat input.
-4. Read the response generated in the selected personality.
-5. Continue chatting; previous messages in the current session are included as context.
-6. Click **🔄 Reset Chat** to clear the conversation.
-7. Enter `0` in the chat input to stop the current interaction. Reset the chat to start again.
+This project is deployed using **Streamlit Community Cloud**.
 
-**Note:** Changing the selected personality initializes a new conversation for that mode.
+To deploy your own copy:
 
-## 🧠 How It Works
+1. Push the project to a GitHub repository.
+2. Sign in to [Streamlit Community Cloud](https://share.streamlit.io/).
+3. Create an app and select the repository, branch, and main Python file.
+4. Open the app's **Settings → Secrets**.
+5. Add your API key in TOML format:
 
-1. **Personality selection:** Streamlit displays three personality options.
-2. **System prompt:** The selected option maps to a system prompt describing the assistant's tone.
-3. **Session state:** Streamlit session state stores the model and conversation messages.
-4. **Message handling:** User messages are added to the conversation as `HumanMessage` objects.
-5. **Model invocation:** LangChain sends the conversation to the configured Mistral chat model.
-6. **Response display:** The generated answer is displayed in the chat interface and saved as an `AIMessage` for subsequent turns.
+   ```toml
+   MISTRAL_API_KEY = "your_actual_api_key_here"
+   ```
 
-The application configures the model as `open-mistral-7b` with a temperature of `0.8`. Model availability may depend on Mistral AI's current service offerings and your account access.
+6. Save the settings and wait for the app to restart.
 
-## 🔐 Security Notes
+The application code must read the secret (for example, through `st.secrets["MISTRAL_API_KEY"]`) or otherwise access the configured environment variable. The secret name in the dashboard and the name used in code must match.
 
-- Store API keys in `.env` or a secure secrets manager.
-- Add `.env` and `.venv/` to `.gitignore`.
-- If an API key has been committed or exposed, revoke it and create a replacement.
-- Do not commit credentials, tokens, or other sensitive information to the repository.
+## 🔐 Security
+
+- **Never commit API keys** to GitHub.
+- Keep `.env` out of version control.
+- Use Streamlit Cloud Secrets for deployed applications.
+- If a key is exposed, revoke it and create a new one.
+- Do not paste API keys into screenshots, issues, or public messages.
 
 Recommended `.gitignore` entries:
 
@@ -138,42 +213,32 @@ __pycache__/
 .streamlit/secrets.toml
 ```
 
-## 🛠️ Troubleshooting
+## ⚠️ Notes
 
-### Missing Mistral API key or authentication error
-Check that your `.env` file is in the project root, that the variable is correctly configured, and that your API key is valid.
+- AI responses depend on the configured Mistral model, API access, and service availability.
+- API usage may be subject to account limits or charges.
+- Conversation history is maintained in Streamlit session state; this project does not implement a permanent database for chat history.
+- The chatbot changes response tone based on a selected prompt; it is not a mental-health diagnostic tool.
 
-### `streamlit` command not found
-Activate your virtual environment and install Streamlit:
+## 🚀 Potential Improvements
 
-```bash
-python -m pip install streamlit
-```
+Ideas for future versions (not necessarily implemented yet):
 
-### Dependency or import errors
-Ensure the virtual environment is active, then install the packages listed in the installation section.
-
-### Model unavailable or API request fails
-Check your internet connection, Mistral AI account access, API status, and whether `open-mistral-7b` is available to your account. Update the model name in `UI_chatbot.py` if required by the current Mistral API.
-
-## 🔮 Possible Future Improvements
-
-- Add more personalities and allow users to customize a tone.
-- Add streaming responses for a more responsive chat experience.
-- Add conversation export and persistent chat history.
-- Improve error handling for API and network failures.
-- Add tests and configuration validation.
-- Deploy the application to a hosting platform.
-
-These are potential improvements and are **not currently implemented**.
+- Add more personalities and customizable system prompts.
+- Add response streaming.
+- Add persistent chat history and conversation export.
+- Add more robust API error handling and configuration checks.
+- Add unit tests and deployment health checks.
+- Improve accessibility and mobile layout.
 
 ## 👨‍💻 Author
 
 **Risabh Pandey**
 
 - GitHub: [@RisabhPandey](https://github.com/RisabhPandey)
-- Project: [Mood-Based-AI-Chatbot](https://github.com/RisabhPandey/Mood-Based-AI-Chatbot)
+- Repository: [Mood-Based-AI-Chatbot](https://github.com/RisabhPandey/Mood-Based-AI-Chatbot)
+- Live Demo: [Try the chatbot](https://mood-based-ai-chatbot-1.streamlit.app/)
 
 ## 📄 License
 
-No license is specified here. Add a `LICENSE` file if you want to define how others may use, modify, and distribute this project.
+No license is specified in this README. Add a `LICENSE` file to your repository if you want to define the terms under which others may use, modify, or distribute the project.
